@@ -97,7 +97,7 @@ parser.add_argument('--pool-size', '-ps', default=20000, type=int, metavar='N',
 # standard train/val options
 parser.add_argument('--gpu-id', '-g', default='0', metavar='N',
                     help='gpu id used for training (default: 0)')
-parser.add_argument('--workers', '-j', default=8, type=int, metavar='N',
+parser.add_argument('--workers', '-j', default=1, type=int, metavar='N',
                     help='number of data loading workers (default: 8)')
 parser.add_argument('--epochs', default=100, type=int, metavar='N',
                     help='number of total epochs to run (default: 100)')

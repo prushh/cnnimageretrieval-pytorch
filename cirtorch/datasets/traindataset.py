@@ -189,7 +189,7 @@ class TuplesDataset(data.Dataset):
             # prepare query loader
             loader = torch.utils.data.DataLoader(
                 ImagesFromList(root='', images=[self.images[i] for i in self.qidxs], imsize=self.imsize, transform=self.transform),
-                batch_size=1, shuffle=False, num_workers=8, pin_memory=True
+                batch_size=1, shuffle=False, num_workers=1, pin_memory=True
             )
             # extract query vectors
             qvecs = torch.zeros(net.meta['outputdim'], len(self.qidxs)).cuda()
@@ -203,7 +203,7 @@ class TuplesDataset(data.Dataset):
             # prepare negative pool data loader
             loader = torch.utils.data.DataLoader(
                 ImagesFromList(root='', images=[self.images[i] for i in idxs2images], imsize=self.imsize, transform=self.transform),
-                batch_size=1, shuffle=False, num_workers=8, pin_memory=True
+                batch_size=1, shuffle=False, num_workers=1, pin_memory=True
             )
             # extract negative pool vectors
             poolvecs = torch.zeros(net.meta['outputdim'], len(idxs2images)).cuda()
