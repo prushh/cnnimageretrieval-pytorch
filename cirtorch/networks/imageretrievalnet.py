@@ -314,7 +314,7 @@ def extract_ms(net, input, ms, msp):
         if s == 1:
             input_t = input.clone()
         else:    
-            input_t = nn.functional.interpolate(input, scale_factor=s, mode='bilinear', align_corners=False)
+            input_t = nn.functional.interpolate(input, scale_factor=s, mode='bilinear', align_corners=False, recompute_scale_factor=True)
         v += net(input_t).pow(msp).cpu().data.squeeze()
         
     v /= len(ms)
